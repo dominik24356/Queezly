@@ -5,28 +5,29 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
-public class Quiz {
+public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "content")
+    private String content;
 
-    @Column(name = "description")
-    private String description;
+    @ManyToOne
+    @JoinColumn(name = "quiz_id")
+    private Quiz quiz;
 
-    @Column(name = "creation_date")
-    private Date creationDate;
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    private List<Answer> answers;
 
-    public Quiz() {
-        this.creationDate = new Date(System.currentTimeMillis());
+    public Question() {
+
     }
 }

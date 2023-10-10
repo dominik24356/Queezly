@@ -1,6 +1,10 @@
 package com.opensource.queezly.config;
 
+import com.opensource.queezly.entity.Answer;
+import com.opensource.queezly.entity.Question;
 import com.opensource.queezly.entity.Quiz;
+import com.opensource.queezly.repository.AnswerRepository;
+import com.opensource.queezly.repository.QuestionRepository;
 import com.opensource.queezly.repository.QuizRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -12,9 +16,14 @@ import java.sql.Date;
 public class DataInitializer implements ApplicationRunner {
 
     private final QuizRepository quizRepository;
+    private final QuestionRepository questionRepository;
 
-    public DataInitializer(QuizRepository quizRepository) {
+    private final AnswerRepository answerRepository;
+
+    public DataInitializer(QuizRepository quizRepository, QuestionRepository questionRepository, AnswerRepository answerRepository) {
         this.quizRepository = quizRepository;
+        this.questionRepository = questionRepository;
+        this.answerRepository = answerRepository;
     }
 
     @Override
@@ -34,8 +43,63 @@ public class DataInitializer implements ApplicationRunner {
         quiz3.setDescription("Zadania matematyczne.");
         quiz3.setCreationDate(Date.valueOf("2022-10-20"));
 
+
+        Question question1 = new Question();
+        question1.setContent("Jaka jest nazwa języka programowania stworzonego w 1995 roku przez Sun Microsystems?");
+        question1.setQuiz(quiz1);
+
+        Answer answer1_1 = new Answer();
+        answer1_1.setContent("Java");
+        answer1_1.setCorrect(true);
+        answer1_1.setQuestion(question1);
+
+        Answer answer1_2 = new Answer();
+        answer1_2.setContent("Python");
+        answer1_2.setCorrect(false);
+        answer1_2.setQuestion(question1);
+
+
+        Question question2 = new Question();
+        question2.setContent("Kto był pierwszym prezydentem Stanów Zjednoczonych?");
+        question2.setQuiz(quiz2);
+
+        Answer answer2_1 = new Answer();
+        answer2_1.setContent("George Washington");
+        answer2_1.setCorrect(true);
+        answer2_1.setQuestion(question2);
+
+        Answer answer2_2 = new Answer();
+        answer2_2.setContent("Abraham Lincoln");
+        answer2_2.setCorrect(false);
+        answer2_2.setQuestion(question2);
+
+
+        Question question3 = new Question();
+        question3.setContent("Ile wynosi pierwiastek kwadratowy z 16?");
+        question3.setQuiz(quiz3);
+
+        Answer answer3_1 = new Answer();
+        answer3_1.setContent("4");
+        answer3_1.setCorrect(true);
+        answer3_1.setQuestion(question3);
+
+        Answer answer3_2 = new Answer();
+        answer3_2.setContent("8");
+        answer3_2.setCorrect(false);
+        answer3_2.setQuestion(question3);
+
+
         quizRepository.save(quiz1);
         quizRepository.save(quiz2);
         quizRepository.save(quiz3);
+        questionRepository.save(question1);
+        questionRepository.save(question2);
+        questionRepository.save(question3);
+        answerRepository.save(answer1_1);
+        answerRepository.save(answer1_2);
+        answerRepository.save(answer2_1);
+        answerRepository.save(answer2_2);
+        answerRepository.save(answer3_1);
+        answerRepository.save(answer3_2);
     }
 }

@@ -36,7 +36,7 @@ public class QuizController {
     }
 
     @PostMapping("/quizzes")
-    public ResponseEntity<Quiz> createQuiz(@RequestBody Quiz quiz) {
+    public ResponseEntity<Quiz> saveQuiz(@RequestBody Quiz quiz) {
         Quiz savedQuiz = quizService.saveQuiz(quiz);
 
         String uri = ServletUriComponentsBuilder
@@ -46,5 +46,12 @@ public class QuizController {
                 .toUriString();
 
         return ResponseEntity.created(URI.create(uri)).build();
+    }
+
+    @DeleteMapping("/quizzes/{quizId}")
+    public ResponseEntity<Void> deleteQuizById(@PathVariable Long quizId) {
+        quizService.deleteQuizById(quizId);
+
+        return ResponseEntity.ok().build();
     }
 }

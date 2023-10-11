@@ -1,5 +1,6 @@
 package com.opensource.queezly.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,6 @@ public class Question {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "quiz_id")
     private Quiz quiz;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)

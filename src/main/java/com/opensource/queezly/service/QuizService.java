@@ -19,14 +19,19 @@ public class QuizService {
         return quizRepository.findAll();
     }
 
-    public Quiz getQuizById(Long id) {
+    public Quiz getQuizById(Long quizId) {
 
-        return quizRepository.getQuizById(id)
-                .orElseThrow(() -> new QuizNotFoundException(id));
+        return quizRepository.getQuizById(quizId)
+                .orElseThrow(() -> new QuizNotFoundException(quizId));
 
     }
 
     public Quiz saveQuiz(Quiz quizToSave) {
         return quizRepository.save(quizToSave);
+    }
+
+    public void deleteQuizById(Long quizId) {
+        Quiz quizById = getQuizById(quizId);
+        quizRepository.delete(quizById);
     }
 }

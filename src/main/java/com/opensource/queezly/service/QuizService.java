@@ -2,9 +2,11 @@ package com.opensource.queezly.service;
 
 import com.opensource.queezly.entity.Quiz;
 import com.opensource.queezly.repository.QuizRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class QuizService {
@@ -16,5 +18,12 @@ public class QuizService {
 
     public List<Quiz> getAllQuizzes() {
         return quizRepository.findAll();
+    }
+
+    public Quiz getQuizById(Long id) {
+
+        return quizRepository.getQuizById(id)
+                .orElseThrow(() -> new EmptyResultDataAccessException("quiz not found",1));
+
     }
 }

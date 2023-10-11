@@ -23,6 +23,12 @@ public class Quiz {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "difficulty")
+    private String difficulty;
+
     @Column(name = "creation_date")
     private Date creationDate;
 

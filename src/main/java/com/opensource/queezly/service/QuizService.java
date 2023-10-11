@@ -1,6 +1,7 @@
 package com.opensource.queezly.service;
 
 import com.opensource.queezly.entity.Quiz;
+import com.opensource.queezly.exceptions.quiz.QuizNotFoundException;
 import com.opensource.queezly.repository.QuizRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class QuizService {
     public Quiz getQuizById(Long id) {
 
         return quizRepository.getQuizById(id)
-                .orElseThrow(() -> new EmptyResultDataAccessException("quiz not found",1));
+                .orElseThrow(() -> new QuizNotFoundException(id));
 
     }
 }

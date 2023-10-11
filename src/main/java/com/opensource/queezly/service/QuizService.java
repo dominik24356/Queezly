@@ -3,11 +3,9 @@ package com.opensource.queezly.service;
 import com.opensource.queezly.entity.Quiz;
 import com.opensource.queezly.exceptions.quiz.QuizNotFoundException;
 import com.opensource.queezly.repository.QuizRepository;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class QuizService {
@@ -26,5 +24,9 @@ public class QuizService {
         return quizRepository.getQuizById(id)
                 .orElseThrow(() -> new QuizNotFoundException(id));
 
+    }
+
+    public Quiz saveQuiz(Quiz quizToSave) {
+        return quizRepository.save(quizToSave);
     }
 }

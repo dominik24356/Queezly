@@ -27,7 +27,8 @@ public class Quiz {
     private String category;
 
     @Column(name = "difficulty")
-    private String difficulty;
+    @Enumerated(EnumType.STRING)
+    private Difficulty difficulty;
 
     @Column(name = "creation_date")
     private Date creationDate;
@@ -35,4 +36,9 @@ public class Quiz {
     public Quiz() {
         this.creationDate = new Date(System.currentTimeMillis());
     }
+
+    public enum Difficulty {EASY,MEDIUM,HARD}
 }
+
+
+

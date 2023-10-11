@@ -33,21 +33,21 @@ public class DataInitializer implements ApplicationRunner {
         quiz1.setDescription("Test wiedzy z zakresu programowania.");
         quiz1.setCreationDate(Date.valueOf("2022-12-12"));
         quiz1.setCategory("Programowanie");
-        quiz1.setDifficulty("Trudny");
+        quiz1.setDifficulty(Quiz.Difficulty.MEDIUM);
 
         Quiz quiz2 = new Quiz();
         quiz2.setTitle("Quiz o historii");
         quiz2.setDescription("Pytania z historii świata.");
         quiz2.setCreationDate(Date.valueOf("2022-11-15"));
         quiz2.setCategory("Historia");
-        quiz2.setDifficulty("Latwy");
+        quiz2.setDifficulty(Quiz.Difficulty.EASY);
 
         Quiz quiz3 = new Quiz();
         quiz3.setTitle("Quiz o matematyce");
         quiz3.setDescription("Zadania matematyczne.");
         quiz3.setCreationDate(Date.valueOf("2022-10-20"));
         quiz3.setCategory("Matematyka");
-        quiz3.setDifficulty("Sredni");
+        quiz3.setDifficulty(Quiz.Difficulty.HARD);
 
 
         Question question1 = new Question();

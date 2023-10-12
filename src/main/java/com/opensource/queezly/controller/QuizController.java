@@ -1,5 +1,6 @@
 package com.opensource.queezly.controller;
 
+import com.opensource.queezly.dto.QuizFullDto;
 import com.opensource.queezly.entity.Quiz;
 import com.opensource.queezly.service.QuizService;
 import org.springframework.http.HttpHeaders;
@@ -29,8 +30,8 @@ public class QuizController {
 
 
     @GetMapping("/quizzes/{quizId}")
-    public ResponseEntity<Quiz> getQuizById(@PathVariable Long quizId) {
-        Quiz quizById = quizService.getQuizById(quizId);
+    public ResponseEntity<QuizFullDto> getQuizById(@PathVariable Long quizId) {
+        QuizFullDto quizById = quizService.getQuizById(quizId);
 
         return ResponseEntity.ok(quizById);
     }

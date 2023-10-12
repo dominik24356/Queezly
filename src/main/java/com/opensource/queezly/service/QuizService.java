@@ -1,7 +1,9 @@
 package com.opensource.queezly.service;
 
+import com.opensource.queezly.dto.QuizFullDto;
 import com.opensource.queezly.entity.Quiz;
 import com.opensource.queezly.exceptions.quiz.QuizNotFoundException;
+import com.opensource.queezly.mapper.QuizMapper;
 import com.opensource.queezly.repository.QuizRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,19 +12,23 @@ import java.util.List;
 @Service
 public class QuizService {
     private final QuizRepository quizRepository;
+    private final QuizMapper quizMapper;
 
-    public QuizService(QuizRepository quizRepository) {
+    public QuizService(QuizRepository quizRepository, QuizMapper quizMapper) {
         this.quizRepository = quizRepository;
+        this.quizMapper = quizMapper;
     }
 
     public List<Quiz> getAllQuizzes() {
         return quizRepository.findAll();
     }
 
-    public Quiz getQuizById(Long quizId) {
+    public QuizFullDto getQuizById(Long quizId) {
 
-        return quizRepository.getQuizById(quizId)
+        Quiz quiz = quizRepository.getQuizById(quizId)
                 .orElseThrow(() -> new QuizNotFoundException(quizId));
+
+        return quizMapper.mapToQuizFullDto(quiz);
 
     }
 
@@ -31,7 +37,11 @@ public class QuizService {
     }
 
     public void deleteQuizById(Long quizId) {
-        Quiz quizById = getQuizById(quizId);
-        quizRepository.delete(quizById);
+        if(quizRepository.existsById(quizId)){
+            quizRepository.deleteById(quizId);
+
+        } else {
+            throw new QuizNotFoundException(quizId);
+        }
     }
 }

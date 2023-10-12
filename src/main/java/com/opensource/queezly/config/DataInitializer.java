@@ -1,5 +1,6 @@
 package com.opensource.queezly.config;
 
+import com.opensource.queezly.common.enums.Difficulty;
 import com.opensource.queezly.entity.Answer;
 import com.opensource.queezly.entity.Question;
 import com.opensource.queezly.entity.Quiz;
@@ -33,21 +34,21 @@ public class DataInitializer implements ApplicationRunner {
         quiz1.setDescription("Test wiedzy z zakresu programowania.");
         quiz1.setCreationDate(Date.valueOf("2022-12-12"));
         quiz1.setCategory("Programowanie");
-        quiz1.setDifficulty(Quiz.Difficulty.MEDIUM);
+        quiz1.setDifficulty(Difficulty.HARD);
 
         Quiz quiz2 = new Quiz();
         quiz2.setTitle("Quiz o historii");
         quiz2.setDescription("Pytania z historii świata.");
         quiz2.setCreationDate(Date.valueOf("2022-11-15"));
         quiz2.setCategory("Historia");
-        quiz2.setDifficulty(Quiz.Difficulty.EASY);
+        quiz2.setDifficulty(Difficulty.MEDIUM);
 
         Quiz quiz3 = new Quiz();
         quiz3.setTitle("Quiz o matematyce");
         quiz3.setDescription("Zadania matematyczne.");
         quiz3.setCreationDate(Date.valueOf("2022-10-20"));
         quiz3.setCategory("Matematyka");
-        quiz3.setDifficulty(Quiz.Difficulty.HARD);
+        quiz3.setDifficulty(Difficulty.EASY);
 
 
         Question question1 = new Question();

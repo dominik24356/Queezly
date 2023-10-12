@@ -1,6 +1,7 @@
 package com.opensource.queezly.service;
 
 import com.opensource.queezly.dto.QuizFullDto;
+import com.opensource.queezly.dto.QuizInfoDto;
 import com.opensource.queezly.entity.Quiz;
 import com.opensource.queezly.exceptions.quiz.QuizNotFoundException;
 import com.opensource.queezly.mapper.QuizMapper;
@@ -8,6 +9,7 @@ import com.opensource.queezly.repository.QuizRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class QuizService {
@@ -19,8 +21,8 @@ public class QuizService {
         this.quizMapper = quizMapper;
     }
 
-    public List<Quiz> getAllQuizzes() {
-        return quizRepository.findAll();
+    public List<QuizInfoDto> getAllQuizzes() {
+        return quizRepository.findAll().stream().map(quizMapper::mapToQuizInfoDto).collect(Collectors.toList());
     }
 
     public QuizFullDto getQuizById(Long quizId) {

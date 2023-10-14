@@ -3,8 +3,6 @@ package com.opensource.queezly.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.opensource.queezly.common.enums.Difficulty;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,24 +20,20 @@ import java.util.List;
 public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "quiz_id")
     private Long id;
 
     @Column(name = "title")
-    @NotBlank
     private String title;
 
     @Column(name = "description")
-    @NotNull
     private String description;
 
     @Column(name = "category")
-    @NotBlank
     private String category;
 
     @Column(name = "difficulty")
     @Enumerated(EnumType.STRING)
-    @NotNull
     private Difficulty difficulty;
 
     @Column(name = "creation_date")

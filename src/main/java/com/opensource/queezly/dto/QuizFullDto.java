@@ -13,6 +13,8 @@ import java.util.List;
 @Setter
 public class QuizFullDto {
 
+    private Long id;
+
 
     private String title;
 

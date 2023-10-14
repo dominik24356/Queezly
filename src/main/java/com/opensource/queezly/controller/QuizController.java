@@ -1,5 +1,6 @@
 package com.opensource.queezly.controller;
 
+import com.opensource.queezly.dto.CreateQuizDto;
 import com.opensource.queezly.dto.QuizFullDto;
 import com.opensource.queezly.dto.QuizInfoDto;
 import com.opensource.queezly.entity.Quiz;
@@ -34,8 +35,8 @@ public class QuizController {
     }
 
     @PostMapping("/quizzes")
-    public ResponseEntity<Quiz> saveQuiz(@RequestBody Quiz quiz) {
-        Quiz savedQuiz = quizService.saveQuiz(quiz);
+    public ResponseEntity<Void> saveQuiz(@RequestBody CreateQuizDto quizDto) {
+        Quiz savedQuiz = quizService.saveQuiz(quizDto);
 
         String uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()

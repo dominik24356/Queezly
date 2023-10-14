@@ -7,13 +7,11 @@ import java.util.List;
 
 @Getter
 @Setter
-public class QuestionDto {
-
-    private Long id;
+public class CreateQuestionDto {
 
     private String content;
 
-    private List<AnswerDto> answers;
+    private List<CreateAnswerDto> answers;
 
 
 }

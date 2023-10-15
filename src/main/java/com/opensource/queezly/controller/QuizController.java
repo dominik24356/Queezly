@@ -3,6 +3,7 @@ package com.opensource.queezly.controller;
 import com.opensource.queezly.dto.CreateQuizDto;
 import com.opensource.queezly.dto.QuizFullDto;
 import com.opensource.queezly.dto.QuizInfoDto;
+import com.opensource.queezly.dto.SearchingQuizParameters;
 import com.opensource.queezly.entity.Quiz;
 import com.opensource.queezly.service.QuizService;
 import org.springframework.http.ResponseEntity;
@@ -52,5 +53,13 @@ public class QuizController {
         quizService.deleteQuizById(quizId);
 
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/quizzes/search")
+    public ResponseEntity<List<QuizInfoDto>> getQuizzesByTitleAndCategoryAndDifficulty(@RequestBody SearchingQuizParameters parameters) {
+        List<QuizInfoDto> quizzes = quizService
+                .getQuizzesByTitleAndCategoryAndDifficulty(parameters.getTitle(), parameters.getCategory(), parameters.getDifficulty());
+
+        return ResponseEntity.ok(quizzes);
     }
 }

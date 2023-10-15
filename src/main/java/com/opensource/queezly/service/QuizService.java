@@ -1,11 +1,9 @@
 package com.opensource.queezly.service;
 
+import com.opensource.queezly.common.enums.Difficulty;
 import com.opensource.queezly.dto.CreateQuizDto;
-import com.opensource.queezly.dto.QuestionDto;
 import com.opensource.queezly.dto.QuizFullDto;
 import com.opensource.queezly.dto.QuizInfoDto;
-import com.opensource.queezly.entity.Answer;
-import com.opensource.queezly.entity.Question;
 import com.opensource.queezly.entity.Quiz;
 import com.opensource.queezly.exceptions.quiz.QuizNotFoundException;
 import com.opensource.queezly.mapper.QuizMapper;
@@ -13,8 +11,6 @@ import com.opensource.queezly.repository.QuestionRepository;
 import com.opensource.queezly.repository.QuizRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,5 +58,12 @@ public class QuizService {
         } else {
             throw new QuizNotFoundException(quizId);
         }
+    }
+
+
+    public List<QuizInfoDto> getQuizzesByTitleAndCategoryAndDifficulty(String title, String category, Difficulty difficulty) {
+        List<Quiz> quizzes = quizRepository.findQuizzesByTitleAndCategoryAndDifficulty(title, category, difficulty);
+
+        return quizMapper.mapToQuizzesInfoDto(quizzes);
     }
 }

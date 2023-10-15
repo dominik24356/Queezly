@@ -1,8 +1,6 @@
 package com.opensource.queezly.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.opensource.queezly.common.enums.Difficulty;
-import com.opensource.queezly.entity.Question;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -116,8 +116,11 @@ public class DataInitializer implements ApplicationRunner {
         questionRepository.save(question1);
         questionRepository.save(question2);
         questionRepository.save(question3);
+        questionRepository.save(question4);
         answerRepository.save(answer1_1);
         answerRepository.save(answer1_2);
+        answerRepository.save(answer1_3);
+        answerRepository.save(answer1_4);
         answerRepository.save(answer2_1);
         answerRepository.save(answer2_2);
         answerRepository.save(answer3_1);

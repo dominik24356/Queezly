@@ -55,6 +55,10 @@ public class DataInitializer implements ApplicationRunner {
         question1.setContent("Jaka jest nazwa języka programowania stworzonego w 1995 roku przez Sun Microsystems?");
         question1.setQuiz(quiz1);
 
+        Question question4 = new Question();
+        question4.setContent("Who is Sebastian Enrique Alvarez?");
+        question4.setQuiz(quiz1);
+
         Answer answer1_1 = new Answer();
         answer1_1.setContent("Java");
         answer1_1.setCorrect(true);
@@ -64,6 +68,16 @@ public class DataInitializer implements ApplicationRunner {
         answer1_2.setContent("Python");
         answer1_2.setCorrect(false);
         answer1_2.setQuestion(question1);
+
+        Answer answer1_3 = new Answer();
+        answer1_3.setContent("GIGA CHAD");
+        answer1_3.setCorrect(true);
+        answer1_3.setQuestion(question4);
+
+        Answer answer1_4 = new Answer();
+        answer1_4.setContent("BETA MALE");
+        answer1_4.setCorrect(false);
+        answer1_4.setQuestion(question4);
 
 
         Question question2 = new Question();

@@ -12,8 +12,7 @@ public class CreateQuizDto {
 
     private String title;
 
-
-//    private String description;
+    private String description;
 
     private String category;
 

@@ -55,7 +55,7 @@ public class QuizController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/quizzes/search")
+    @PostMapping("/quizzes/search")
     public ResponseEntity<List<QuizInfoDto>> getQuizzesByTitleAndCategoryAndDifficulty(@RequestBody SearchingQuizParameters parameters) {
         List<QuizInfoDto> quizzes = quizService
                 .getQuizzesByTitleAndCategoryAndDifficulty(parameters.getTitle(), parameters.getCategory(), parameters.getDifficulty());

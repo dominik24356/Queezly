@@ -3,6 +3,12 @@ Queezly is a interactive quiz app for fun learning and knowledge sharing.
 
 link for the frontend part: https://github.com/KubaProg/Queezly-frontend.git
 
+Used technologies in this project :
+- Java
+- Spring Framework
+- H2 Database
+
+
 Below are the preview images of the frontend section of the Queezly application:
 
 

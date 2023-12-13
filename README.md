@@ -1,16 +1,24 @@
-# Queezly
-Queezly is a interactive quiz app for fun learning and knowledge sharing.
+# Queezly - Interactive Quiz Application
 
-link for the frontend part: https://github.com/KubaProg/Queezly-frontend.git
+Queezly is a web application designed to facilitate quiz-solving with features such as quiz search by category, difficulty level, or name, creating custom quizzes with specified parameters, and displaying user results.
 
-Used technologies in this project :
-- Java
-- Spring Framework
-- H2 Database
+## Project Description
+The project involved the development of a web application that allows users to engage in quiz-solving activities. It includes functionalities such as searching for quizzes based on categories, difficulty levels, or names, creating custom quizzes with predefined parameters, and displaying user scores.
 
+## Queezly Features:
+- Quiz Search: Find quizzes based on category, difficulty level, or name.
+- Create Custom Quiz: Generate your quiz with specified parameters.
+- User Results: Display and track user scores.
 
-Below are the preview images of the frontend section of the Queezly application:
+## Technologies Used:
+- **Java:** Core programming language.
+- **Spring Framework:** Utilized for building a robust and scalable web application.
+- **H2 Database:** Employed as the underlying database to manage and store data efficiently.
 
+## Links to Repositories:
+- [Frontend Repository](https://github.com/KubaProg/Queezly-frontend.git)
+
+## Preview Images:
 
 ![Screenshot 2023-10-29 022843](https://github.com/dominik24356/Queezly/assets/70453666/f837207c-9045-460d-8b45-f8f56608abb4)
 
